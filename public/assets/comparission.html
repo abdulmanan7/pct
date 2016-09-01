@@ -1,0 +1,87 @@
+<div class="col-md-12">
+    <form method="POST" ng-submit="get_data()" class="form-inline" role="form">
+        <div class="form-group">
+            <input type="text" class="form-control" value="" placeholder="key work product name" ng-model="keyword">
+        </div> 
+        <div class="form-group">
+            <select required="required" class="form-control" ng-model="searchIndex">
+               <option value="">--Search Index --</option>
+               <option value="Beauty">Beauty</option>
+               <option value="Blended">Blended</option>
+               <option value="Books">Books</option>
+               <option value="FashionWomen">Fashion Women</option>
+               <option value="">blah blah</option>
+               <option value="">blah blah</option>
+               <option value="">blah blah</option>
+           </select>
+        </div>
+        <div class="form-group">
+           <select class="form-control" ng-model="responseGroup">
+               <option value="Small">--Response Group --</option>
+               <option value="Small">Small</option>
+               <option value="Large">Large</option>
+               <option value="Medium">Medium</option>
+                 <option value="">blah blah</option>
+               <option value="">blah blah</option>
+               <option value="">blah blah</option>
+           </select>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-6">
+            <p>Amazone</p>
+            <table class="table table-hover">
+        <input type="hidden" ng-model="view" value="amazone">
+        <thead>
+            <tr>
+                <th>Thumbnail</th>
+                <th>Brand</th>
+                <th>UPC</th>
+                <th>Price</th>
+                <th>Sale Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in amazone">
+                <td><img src="{{item.SmallImage.URL}}" alt=""></td>
+                <td>{{ item.ItemAttributes.Brand }}</td>
+                <td>{{ item.ItemAttributes.UPC }}</td>
+                <td>{{ item.Offers.Offer.OfferListing.Price.FormattedPrice }}</td>
+                <td>{{ item.Offers.Offer.OfferListing.SalePrice.FormattedPrice }}</td>
+            </tr>
+        </tbody>
+    </div>
+</table>
+        </div>
+        <div class="col-sm-6">
+            <p>Walmart</p>
+            <table class="table table-hover">
+<input type="hidden" ng-model="view" value="walmart">
+    <thead>
+        <tr>
+            <th>Thumbnail</th>
+            <th>Name</th>
+            <th>Model</th>
+            <th>UPC</th>
+            <th>Sale Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in walmart">
+            <td><img src="{{item.thumbnailImage}}" alt=""></td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.modelNumber }}</td>
+            <td>{{ item.upc }}</td>
+            <td>{{ item.salePrice }}</td>
+        </tr>
+    </tbody>
+</div>
+</table>
+        </div>
+    </div>
